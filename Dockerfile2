@@ -1,0 +1,14 @@
+FROM ruby:2.3.0 
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends mysql-server tcl && \
+  apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates && \
+  apt-get install -y libgmp3-dev && \
+  apt-get clean
+RUN apt-get -qq -y install build-essential wget
+
+COPY /scripts/setup/chruby.sh /scripts/setup/chruby.sh
+
+RUN /scripts/setup/chruby.sh
