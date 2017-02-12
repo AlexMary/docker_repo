@@ -10,6 +10,8 @@ RUN apt-get update && \
 
 RUN apt-get -qq -y install build-essential wget
 
+RUN mkdir -p /scripts/setup/ /scripts/exec/
+
 RUN wget "https://github.com/AlexMary/docker_repo/blob/master/scripts/setup/chruby.sh" -O /scripts/setup/chruby.sh
 
 RUN /scripts/setup/chruby.sh
