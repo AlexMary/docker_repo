@@ -11,7 +11,6 @@ RUN apt-get update && \
 RUN apt-get -qq -y install build-essential wget
 
 COPY /scripts/setup/chruby.sh /scripts/setup/chruby.sh
-
 RUN /scripts/setup/chruby.sh
 
 # installation of ruby-install
