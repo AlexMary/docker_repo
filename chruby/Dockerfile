@@ -12,10 +12,10 @@ RUN apt-get -qq -y install build-essential wget
 
 RUN mkdir -p /scripts/setup/ /scripts/exec/
 
-RUN wget "https://github.com/AlexMary/docker_repo/blob/master/scripts/setup/chruby.sh" -O /scripts/setup/chruby.sh && \
-	chmod 755 /scripts/setup/chruby.sh && \
-	/scripts/setup/chruby.sh && \
-	echo "source /usr/local/share/chruby/chruby.sh" >> ~/.bashrc
+RUN wget "https://github.com/AlexMary/docker_repo/blob/master/scripts/setup/chruby.sh" -O /scripts/setup/chruby.sh 
+RUN chmod 755 /scripts/setup/chruby.sh 
+RUN /scripts/setup/chruby.sh 
+RUN echo "source /usr/local/share/chruby/chruby.sh" >> ~/.bashrc
 
 RUN wget "https://github.com/AlexMary/docker_repo/blob/master/scripts/setup/ruby-install.sh" -O /scripts/setup/ruby-install.sh && \
 	chmod 755 /scripts/setup/ruby-install.sh && \
