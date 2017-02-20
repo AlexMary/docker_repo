@@ -25,4 +25,18 @@ RUN /scripts/setup/rubies.sh
 COPY /scripts/exec/run.sh /scripts/exec/run.sh
 CMD /scripts/exec/run.sh
 
+RUN ruby-install ruby-2.3.1 && \
+	ruby-install ruby-2.4.0 && \
+  ruby-install ruby-2.2.2
+
+RUN echo ". /usr/local/share/chruby/chruby.sh # Load chruby
+RUBIES=(
+  ~/usr/local/2.3.1
+  ~/.rubies/ruby-2.4.0/
+  ~/.rubies/ruby-2.2.2/
+  # Path to other Rubies here...
+)
+chruby 2.3.1 # Select default Ruby" >> ~/.bashrc
+
+
 MAINTAINER Siva Praveen <rsivapraveen001@gmail.com>
